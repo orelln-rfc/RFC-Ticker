@@ -27,12 +27,14 @@
       background: none;
       font: 12px/1.4 Arial, sans-serif;
       text-align: center;
-      color: #ffffff;
+      color: #f6f6f6;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
     }
 
-    .tradingview-widget-copyright a {
-      color: #ffffff;
+    /* Targets both the link and the inner span, since the span carries the blue */
+    .tradingview-widget-copyright a,
+    .tradingview-widget-copyright .blue-text {
+      color: #f6f6f6 !important;         /* try #e6e8ee for a softer off-white */
       text-decoration: underline;
       text-underline-offset: 2px;
     }
