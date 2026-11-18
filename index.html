@@ -5,23 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Market Ticker</title>
   <style>
-    html, body { margin: 0; padding: 0; background: transparent; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
 
+    /* Layout: controls where the attribution sits relative to the ticker */
     .tradingview-widget-container {
       display: flex;
-      flex-direction: column;          /* default: ticker on top, attribution below */
-      /* flex-direction: column-reverse;   attribution ABOVE the ticker */
+      flex-direction: column;            /* attribution below the ticker */
+      /* flex-direction: column-reverse;    attribution above the ticker */
     }
 
+    /* Attribution: moved by alignment, kept visible and readable */
     .tradingview-widget-copyright {
-      font: 11px/1.4 Arial, sans-serif;
+      display: inline-block;
+      align-self: center;                /* flex-start = left, center, flex-end = right */
+      margin: 4px 8px;
       padding: 2px 8px;
-      text-align: right;               /* try: left | center | right */
-      /* align-self: flex-end;            alternative way to push it right */
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.92);
+      font: 11px/1.4 Arial, sans-serif;
+      text-align: center;
     }
 
-    .tradingview-widget-copyright a { color: #2962ff; text-decoration: none; }
-    .tradingview-widget-copyright .trademark { color: #787b86; }
+    .tradingview-widget-copyright a {
+      color: #2962ff;
+      text-decoration: none;
+    }
+
+    .tradingview-widget-copyright .trademark {
+      color: #434651;
+    }
+
+    /* Optional, untested: tighten the empty space under the tape.
+       [Guessing] this works, so confirm the ticker still renders fully. */
+    /*
+    .tradingview-widget-container__widget {
+      height: 46px;
+    }
+    */
   </style>
 </head>
 <body>
@@ -32,11 +56,26 @@
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
   {
     "symbols": [
-      { "proName": "SP:SPX", "title": "SPX" },
-      { "proName": "IG:NASDAQ", "title": "NASDAQ" },
-      { "proName": "BITSTAMP:BTCUSD", "title": "BTC" },
-      { "proName": "NASDAQ:AAPL", "title": "AAPL" },
-      { "proName": "OANDA:EURUSD", "title": "EURUSD" }
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "SPX"
+      },
+      {
+        "proName": "IG:NASDAQ",
+        "title": "NASDAQ"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "BTC"
+      },
+      {
+        "proName": "NASDAQ:AAPL",
+        "title": "AAPL"
+      },
+      {
+        "proName": "OANDA:EURUSD",
+        "title": "EURUSD"
+      }
     ],
     "colorTheme": "light",
     "locale": "en",
